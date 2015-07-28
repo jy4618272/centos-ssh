@@ -10,7 +10,7 @@ if [ ${ROOT_PW} ]; then
     echo "Specified root password: "${ROOT_PW}
 else
     # auto gen
-    $ROOT_PW=$(openssl rand 8 -base64)
+    ROOT_PW=$(openssl rand 8 -base64)
     echo "Auto generate root password: "$ROOT_PW
 fi
 echo "root:"$ROOT_PW | chpasswd
