@@ -35,5 +35,19 @@ ssh -p ${port} root@140.92.53.111
 ```
 
 
+# Alittle note for create container
+```
+docker run -d -P \
+  -v /etc/sysconfig/clock:/etc/sysconfig/clock:ro \
+  -v /etc/localtime:/etc/localtime:ro \
+  -e ROOT_PW=${password} \
+  --name ${containername} \
+  whylu/centos-ssh
+```
+-v /etc/sysconfig/clock:/etc/sysconfig/clock:ro  for TIMEZONE sync with host
+
+-v /etc/localtime:/etc/localtime:ro for clock time  sync with host
+
+:ro for read only
 
 
